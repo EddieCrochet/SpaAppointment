@@ -31,9 +31,9 @@ namespace SpaAppointment
             services.AddDbContext<SpaContext>(config => config
                 .UseSqlServer(Configuration.GetConnectionString("SpaAppointment")));
 
-            services.AddScoped<AppointmentRepository, AppointmentRepository>();
-            services.AddScoped<ServiceProviderRepository, ServiceProviderRepository>();
-            services.AddScoped<CustomerRepository, CustomerRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IServiceProviderRepository, ServiceProviderRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IReadOnlySpaContext, SpaContext>();
             services.Configure<CookiePolicyOptions>(options =>
             {
