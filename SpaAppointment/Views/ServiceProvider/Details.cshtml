@@ -1,59 +1,29 @@
-﻿@model SpaAppointment.Models.ServiceProvider
-@using SpaAppointment.Services;
-@using SpaAppointment.Data;
-@inject SpaAppointment.Services.ServiceProviderRepository ServRepo
-@inject SpaAppointment.Services.CustomerRepository CustRepo
+﻿@model dynamic
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    //ServiceProviderRepository repo = new ServiceProviderRepository();
-    //CustomerRepository custRepo = new CustomerRepository();
-    var appointments = ServRepo.GetAppointmentsForProviderByDay(Model.Id);
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>ServiceProvider</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-    </dl>
-</div>
+<h2>Service Provider Details</h2>
 
 <table>
-    @foreach (var item in appointments)
+    <tr>
+        <th>Name</th>
+        <th>ID</th>
+    </tr>
+    <!--now make this list to display, for that single provider,
+    the appointments for one single day-->
+    @foreach (ServiceProvider prov in Model.ServiceProvider)
     {
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(modelItem => item.AppTime)
-            </dt>
-            <dd>
-                @Html.DisplayFor(modelItem => item.AppTime)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(modelItem => CustRepo.GetCustomer(item.CustomerId).Name)
-            </dt>
-            <dd>
-                @Html.DisplayFor(modelItem => CustRepo.GetCustomer(item.CustomerId).Name)
-            </dd>
-        </dl>
+        <tr>
+            <td>@prov.Name</td>
+            <td>@prov.Id</td>
+        </tr>
     }
 </table>
 
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+   <!-- figure out how to reference just one model from dynamic to access the EDIT method-->
     <a asp-action="Index">Back to List</a>
 </div>

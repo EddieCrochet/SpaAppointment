@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -12,10 +13,12 @@ namespace SpaAppointment.Controllers
     public class ServiceProviderController : Controller
     {
         private readonly IServiceProviderRepository repo;
+        private readonly ICustomerRepository custRepo;
 
-        public ServiceProviderController(IServiceProviderRepository _repo)
+        public ServiceProviderController(IServiceProviderRepository _repo, ICustomerRepository _custRepo)
         {
             repo = _repo;
+            custRepo = _custRepo;
         }
 
         // GET: ServiceProvider
@@ -27,8 +30,12 @@ namespace SpaAppointment.Controllers
         // GET: ServiceProvider/Details/5
         public ActionResult Details(int id)
         {
-            repo.GetAppointmentsForProviderByDay(id);
-            return View(repo.GetProvider(id));
+            //Trying to be able to list appointments for one provider for one day
+            //repo.GetAppointmentsForProviderByDay(id);
+            dynamic dynaModel = new ExpandoObject();
+            dynaModel.ServiceProvider = repo.ServiceProviders;
+            dynaModel.Customer = custRepo.Customers;
+            return View(dynaModel);
         }
 
         // GET: ServiceProvider/Create
