@@ -60,7 +60,7 @@ namespace SpaAppointment.Controllers
                     else
                     {
                         ModelState.AddModelError("",
-                            "There is no Service ProProviderIdvider that exists with the selected ID..."+
+                            "There is no Service Provider that exists with the selected ID..."+
                             "I'm begging you, think very carefully and give this just one more shot, Big Guy");
                         return View();
                     }
