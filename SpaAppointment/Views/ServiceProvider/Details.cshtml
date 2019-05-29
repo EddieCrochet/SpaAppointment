@@ -13,12 +13,12 @@
 
 <table>
     <tr>
-        <th>Name</th>
-        <th>ID</th>
+        <th>Appointment Time</th>
+        <th>Customer Name</th>
     </tr>
     <!--now make this list to display, for that single provider,
     the appointments for one single day-->
-    @foreach (ServiceProvider prov in Model.ServiceProvider)
+    @foreach (dynamic app in Model.Where(a => a.ProviderId == this.ProviderId))
     {
         <tr>
             <td>@prov.Name</td>
