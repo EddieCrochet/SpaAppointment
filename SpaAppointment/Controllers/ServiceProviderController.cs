@@ -14,11 +14,14 @@ namespace SpaAppointment.Controllers
     {
         private readonly IServiceProviderRepository repo;
         private readonly ICustomerRepository custRepo;
+        private readonly IAppointmentRepository appRepo;
 
-        public ServiceProviderController(IServiceProviderRepository _repo, ICustomerRepository _custRepo)
+        public ServiceProviderController(IServiceProviderRepository _repo, 
+            ICustomerRepository _custRepo, IAppointmentRepository _appRepo)
         {
             repo = _repo;
             custRepo = _custRepo;
+            appRepo = _appRepo;
         }
 
         // GET: ServiceProvider
@@ -35,6 +38,7 @@ namespace SpaAppointment.Controllers
             dynamic dynaModel = new ExpandoObject();
             dynaModel.ServiceProvider = repo.ServiceProviders;
             dynaModel.Customer = custRepo.Customers;
+            dynaModel.Appointment = appRepo.Appointments;
             return View(dynaModel);
         }
 
