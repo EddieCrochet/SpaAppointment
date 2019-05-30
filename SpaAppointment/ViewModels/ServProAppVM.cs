@@ -9,6 +9,7 @@ namespace SpaAppointment.ViewModels
     public class ServProAppVM
     {
         public IEnumerable<Appointment> appointments { get; set; }
+        public Appointment appointment { get; set; }
         public ServiceProvider serviceProvider { get; set; }
     }
 }

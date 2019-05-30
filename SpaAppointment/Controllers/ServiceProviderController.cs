@@ -37,6 +37,7 @@ namespace SpaAppointment.Controllers
             //Trying to be able to list appointments for one provider for one day
             ServProAppVM servProAppVM = new ServProAppVM();
             servProAppVM.appointments = repo.GetAppointmentsForProviderByDay(id);
+            servProAppVM.appointment = new Appointment();
             servProAppVM.serviceProvider = repo.GetProvider(id);
             return View(servProAppVM);
         }

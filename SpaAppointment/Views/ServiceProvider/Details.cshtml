@@ -36,18 +36,30 @@
     <thead>
         <tr>
             <th>
-                
+                @Html.DisplayNameFor(model => model.appointment.AppTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointment.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointment.CustomerId)
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach(var item in Model.appointments)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AppTime)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+        </tr>
         }
     </tbody>
 </table>
