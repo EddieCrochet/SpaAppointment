@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SpaAppointment.Models;
 using SpaAppointment.Services;
+using SpaAppointment.ViewModels;
 
 namespace SpaAppointment.Controllers
 {
@@ -31,15 +32,12 @@ namespace SpaAppointment.Controllers
         }
 
         // GET: ServiceProvider/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(ServProAppVM viewModel)
         {
             //Trying to be able to list appointments for one provider for one day
             //repo.GetAppointmentsForProviderByDay(id);
-            dynamic dynaModel = new ExpandoObject();
-            dynaModel.ServiceProvider = repo.ServiceProviders;
-            dynaModel.Customer = custRepo.Customers;
-            dynaModel.Appointment = appRepo.Appointments;
-            return View(dynaModel);
+            
+            return View();
         }
 
         // GET: ServiceProvider/Create
