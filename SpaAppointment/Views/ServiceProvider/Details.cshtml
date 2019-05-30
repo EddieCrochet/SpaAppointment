@@ -1,6 +1,4 @@
-﻿
-
-@model SpaAppointment.ViewModels.ServProAppVM
+﻿@model SpaAppointment.ViewModels.ServProAppVM
 
 @{
     ViewData["Title"] = "Details";
@@ -33,6 +31,27 @@
         </dd>
     </dl>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.appointments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppTime)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
