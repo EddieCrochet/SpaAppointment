@@ -38,7 +38,7 @@ namespace SpaAppointment.Controllers
             //repo.GetAppointmentsForProviderByDay(id);
             ServProAppVM servProAppVM = new ServProAppVM();
             servProAppVM.appointments = repo.GetAppointmentsForProviderByDay(id);
-            return View();
+            return View(servProAppVM);
         }
 
         // GET: ServiceProvider/Create

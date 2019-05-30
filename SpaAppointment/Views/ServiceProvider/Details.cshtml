@@ -1,6 +1,6 @@
 ﻿
 
-@model SpaAppointment.Models.ServiceProvider
+@model SpaAppointment.ViewModels.ServProAppVM
 
 @{
     ViewData["Title"] = "Details";
@@ -20,16 +20,16 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.serviceProvider.Name)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.serviceProvider.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Id)
+            @Html.DisplayNameFor(model => model.serviceProvider.Id)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Id)
+            @Html.DisplayFor(model => model.serviceProvider.Id)
         </dd>
     </dl>
 </div>
