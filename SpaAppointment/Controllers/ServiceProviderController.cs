@@ -32,11 +32,12 @@ namespace SpaAppointment.Controllers
         }
 
         // GET: ServiceProvider/Details/5
-        public ActionResult Details(ServProAppVM viewModel)
+        public ActionResult Details(int id)
         {
             //Trying to be able to list appointments for one provider for one day
             //repo.GetAppointmentsForProviderByDay(id);
-            
+            ServProAppVM servProAppVM = new ServProAppVM();
+            servProAppVM.appointments = repo.GetAppointmentsForProviderByDay(id);
             return View();
         }
 
