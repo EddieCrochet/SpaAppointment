@@ -36,9 +36,18 @@ namespace SpaAppointment.Controllers
         {
             //Trying to be able to list appointments for one provider for one day
             ServProAppVM servProAppVM = new ServProAppVM();
-            servProAppVM.appointments = repo.GetAppointmentsForProviderByDay(id);
+            servProAppVM.appointments = repo.GetAppointmentsByProvider(id);
+            //call method to get appointments for this service provider
+
             servProAppVM.appointment = new Appointment();
+            //allows us to egt property names of class
+
             servProAppVM.serviceProvider = repo.GetProvider(id);
+            //brings in current provider...
+
+            servProAppVM.customer = custRepo.GetCustomer(id);
+            //trying to bring in customer as well but...
+
             return View(servProAppVM);
         }
 

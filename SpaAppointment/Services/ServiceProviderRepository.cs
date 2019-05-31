@@ -43,7 +43,7 @@ namespace SpaAppointment.Services
 
 
         //List method to return service providers for one certain provider by day
-        public List<Appointment> GetAppointmentsForProviderByDay(int providerId)
+        public List<Appointment> GetAppointmentsByProvider(int providerId)
         {
             return _spaContext.Appointments
                 .Where(x => x.ProviderId == providerId)

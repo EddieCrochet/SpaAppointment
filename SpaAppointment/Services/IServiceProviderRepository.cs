@@ -10,7 +10,7 @@ namespace SpaAppointment.Services
 
         void Add(ServiceProvider provider);
         void DeleteProvider(int id);
-        List<Appointment> GetAppointmentsForProviderByDay(int providerId);
+        List<Appointment> GetAppointmentsByProvider(int providerId);
         ServiceProvider GetProvider(int id);
         bool ThisProviderExists(int id);
         void Update(int id, ServiceProvider provider);
