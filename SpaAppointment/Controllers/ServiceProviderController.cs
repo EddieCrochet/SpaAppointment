@@ -40,7 +40,7 @@ namespace SpaAppointment.Controllers
             //call method to get appointments for this service provider
 
             servProAppVM.appointment = new Appointment();
-            //allows us to egt property names of class
+            //allows us to get property names of class
 
             servProAppVM.serviceProvider = repo.GetProvider(id);
             //brings in current provider...

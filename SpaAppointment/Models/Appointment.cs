@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using SpaAppointment.Services;
 
 namespace SpaAppointment.Models
 {
@@ -15,5 +16,14 @@ namespace SpaAppointment.Models
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public int ProviderId { get; set; }
+        public string CustomerName { get; }
+        public string ProviderName { get; }
+
+        public Appointment()
+        {
+            //Need to find a way to set cust and servpro NAMES in THIS class...
+            //get this data from the ID plugged into Appointment somehow??
+            
+        }
     }
 }
