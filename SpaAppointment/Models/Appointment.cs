@@ -16,8 +16,8 @@ namespace SpaAppointment.Models
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public int ProviderId { get; set; }
-        public string CustomerName { get; }
-        public string ProviderName { get; }
+        public string CustomerName { get; set; }
+        public string ProviderName { get; set; }
 
         public Appointment()
         {
