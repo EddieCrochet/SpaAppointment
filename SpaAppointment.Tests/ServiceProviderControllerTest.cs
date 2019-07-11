@@ -17,7 +17,11 @@ namespace SpaAppointment.Tests
         {
             //arrange
             var mockServRepo = new Mock<IServiceProviderRepository>();
-            var controller = new ServiceProviderController(mockServRepo.Object);
+            var mockCustRepo = new Mock<ICustomerRepository>();
+            var mockAppRepo = new Mock<IAppointmentRepository>();
+            //needed to have all repos passed in to my mock controller
+            var controller = new ServiceProviderController(mockServRepo.Object,
+                mockCustRepo.Object, mockAppRepo.Object);
             var testProvider = new ServiceProvider();
 
             //act
