@@ -45,7 +45,7 @@ namespace SpaAppointment.Services
             return _spaContext.Customers.FirstOrDefault(SelectCustomerById(id));
         }
 
-        public bool ThisCustomerExists(int id)
+        public bool ThisCustomerExists(int id, string name)
         {
             foreach(Customer cust in _spaContext.Customers)
             {
