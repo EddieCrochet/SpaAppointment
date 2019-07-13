@@ -52,16 +52,25 @@ namespace SpaAppointment.Controllers
             {
                 if (_custRepo.ThisCustomerExists(appointment.CustomerId))
                 {
-                    if (_servRepo.ThisProviderExists(appointment.ProviderId))
+                    if (_custRepo.CustNameFitsId(appointment.CustomerId, appointment.CustomerName))
                     {
-                        _repo.Add(appointment);
-                        return RedirectToAction(nameof(Index));
+                        if (_servRepo.ThisProviderExists(appointment.ProviderId))
+                        {
+                            _repo.Add(appointment);
+                            return RedirectToAction(nameof(Index));
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("ProviderId",
+                                "There is no Service Provider that exists with the selected ID..." +
+                                "I'm begging you, think very carefully and give this just one more shot, Big Guy");
+                            return View();
+                        }
                     }
                     else
                     {
-                        ModelState.AddModelError("",
-                            "There is no Service Provider that exists with the selected ID..."+
-                            "I'm begging you, think very carefully and give this just one more shot, Big Guy");
+                        ModelState.AddModelError("CustomerName",
+                            "Your selected CustomerID and CustomerName do not match with our database. Try once more.");
                         return View();
                     }
                 }
