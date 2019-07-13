@@ -46,7 +46,7 @@ namespace SpaAppointment.Services
 
         public Appointment GetAppointment(int id)
         {
-            return _spaContext.Appointments.First(SelectAppointmentById(id));
+            return _spaContext.Appointments.FirstOrDefault(SelectAppointmentById(id));
         }
 
         public void DeleteAppointment(int id)
