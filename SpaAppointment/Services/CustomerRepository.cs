@@ -45,11 +45,21 @@ namespace SpaAppointment.Services
             return _spaContext.Customers.FirstOrDefault(SelectCustomerById(id));
         }
 
-        public bool ThisCustomerExists(int id, string name)
+        public bool ThisCustomerExists(int id)
         {
             foreach(Customer cust in _spaContext.Customers)
             {
                 if(cust.Id == id)
+                return true;
+            }
+            return false;
+        }
+
+        public bool CustNameFitsId(int id, string name)
+        {
+            foreach (Customer cust in _spaContext.Customers)
+            {
+                if (cust.Id == id && cust.Name == name)
                 return true;
             }
             return false;

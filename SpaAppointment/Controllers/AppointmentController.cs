@@ -50,7 +50,7 @@ namespace SpaAppointment.Controllers
         {
             if (_repo.isAppointmentAvailable(appointment))
             {
-                if (_custRepo.ThisCustomerExists(appointment.CustomerId, appointment.CustomerName))
+                if (_custRepo.ThisCustomerExists(appointment.CustomerId))
                 {
                     if (_servRepo.ThisProviderExists(appointment.ProviderId))
                     {
