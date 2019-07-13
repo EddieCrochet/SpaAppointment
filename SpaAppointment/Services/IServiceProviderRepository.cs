@@ -13,6 +13,7 @@ namespace SpaAppointment.Services
         List<Appointment> GetAppointmentsByProvider(int providerId);
         ServiceProvider GetProvider(int id);
         bool ThisProviderExists(int id);
+        bool ProvNameFitsId(int id, string name);
         void Update(int id, ServiceProvider provider);
     }
 }

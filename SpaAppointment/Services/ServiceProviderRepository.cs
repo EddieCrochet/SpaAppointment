@@ -66,6 +66,16 @@ namespace SpaAppointment.Services
             return false;
         }
 
+        public bool ProvNameFitsId(int id, string name)
+        {
+            foreach (ServiceProvider serv in _spaContext.ServiceProviders)
+            {
+                if (serv.Id == id && serv.Name == name)
+                return true;
+            }
+            return false;
+        }
+
         //Selector Functions
         private static Func<ServiceProvider, bool> SelectProviderById(int id)
         {
