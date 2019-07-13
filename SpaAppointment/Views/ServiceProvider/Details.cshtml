@@ -32,7 +32,7 @@
     </dl>
 </div>
 
-<caption><h4>All Appointments for @Html.DisplayFor(model => model.serviceProvider.Name);</h4></caption>
+<caption><h4>All Appointments for @Html.DisplayFor(model => model.serviceProvider.Name)</h4></caption>
 <table class="table">
     <thead>
         <tr>
@@ -72,7 +72,7 @@
 </table>
 
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <button class="btn btn-info">@Html.ActionLink("Edit", "Edit", new { id = Model.serviceProvider.Id }) </button>
     <a asp-action="Index" class="btn btn-default">Back to List</a>
 </div>
 
