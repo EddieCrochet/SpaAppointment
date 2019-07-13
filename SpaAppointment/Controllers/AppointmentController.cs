@@ -56,8 +56,17 @@ namespace SpaAppointment.Controllers
                     {
                         if (_servRepo.ThisProviderExists(appointment.ProviderId))
                         {
-                            _repo.Add(appointment);
-                            return RedirectToAction(nameof(Index));
+                            if (_servRepo.ProvNameFitsId(appointment.ProviderId, appointment.ProviderName))
+                            {
+                                _repo.Add(appointment);
+                                return RedirectToAction(nameof(Index));
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("ProviderName",
+                                   "Your selected ProviderID and ProviderName do not match with our database TRY AGAIN HAHAHA!!!");
+                                return View();
+                            }
                         }
                         else
                         {
