@@ -28,6 +28,8 @@ namespace SpaAppointment.Tests
                 CustomerId = 1,
                 ProviderId = 1
             };
+
+            //mocking setting up to a mock database
             mockAppRepo.Setup(x => x.isAppointmentAvailable(testApp)).Returns(true);
             mockCustRepo.Setup(x => x.ThisCustomerExists(testApp.CustomerId)).Returns(true);
             mockServRepo.Setup(x => x.ThisProviderExists(testApp.ProviderId)).Returns(true);
@@ -35,8 +37,8 @@ namespace SpaAppointment.Tests
             var result = controller.Create(testApp);
 
             //assert
-            Assert.NotNull(testApp);
-            Assert.IsType<RedirectToActionResult>(result);
+            if(testApp != null)
+            Assert.IsType<ViewResult>(result);
         }
     }
 }
