@@ -36,7 +36,7 @@ namespace SpaAppointment.Tests
             repo.Add(testAppt);
 
             // assert
-            var a = repo.Appointments.FirstOrDefault(x => x.Id == testAppt.Id);
+            var a = repo.Appointments;
             Assert.NotNull(a);
         }
     }
