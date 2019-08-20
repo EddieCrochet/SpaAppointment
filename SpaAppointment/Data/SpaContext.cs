@@ -19,7 +19,7 @@ namespace SpaAppointment.Data
             modelBuilder.Entity<Appointment>().Property(x => x.Id).UseSqlServerIdentityColumn();
         }
 
-        public DbSet<Appointment> Appointments { get; set; }
+        public virtual DbSet<Appointment> Appointments { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ServiceProvider> ServiceProviders { get; set; }
 
