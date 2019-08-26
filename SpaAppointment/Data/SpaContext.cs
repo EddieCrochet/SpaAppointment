@@ -20,7 +20,7 @@ namespace SpaAppointment.Data
         }
 
         public virtual DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public DbSet<ServiceProvider> ServiceProviders { get; set; }
 
         IQueryable<Appointment> IReadOnlySpaContext.Appointments { get => Appointments.AsNoTracking(); }
