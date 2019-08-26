@@ -18,8 +18,9 @@ namespace SpaAppointment.Tests
         public void CanCustomerRepositoryGetCustomer()
         {
             //arrange
+            var mockReadOnlyContext = new Mock<IReadOnlySpaContext>();
             var mockSpaContext = new Mock<SpaContext>(new DbContextOptionsBuilder<SpaContext>().Options);
-            CustomerRepository repo = new CustomerRepository(mockSpaContext.Object);
+            CustomerRepository repo = new CustomerRepository(mockSpaContext.Object, mockReadOnlyContext.Object);
             var testCustomer = new Customer()
             {
                 Name = "Jay Winn",

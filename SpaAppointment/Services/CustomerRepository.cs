@@ -11,11 +11,13 @@ namespace SpaAppointment.Services
     public class CustomerRepository : ICustomerRepository
     {
         private readonly SpaContext _spaContext;
+        private readonly IReadOnlySpaContext _readOnlySpaContext;
         public IQueryable<Customer> Customers => _spaContext.Customers.AsQueryable();
 
-        public CustomerRepository(SpaContext spaContext)
+        public CustomerRepository(SpaContext spaContext, IReadOnlySpaContext readOnlySpaContext)
         {
             _spaContext = spaContext;
+            _readOnlySpaContext = readOnlySpaContext;
         }
 
         //method allows me to add customers to my list
