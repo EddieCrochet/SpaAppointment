@@ -27,6 +27,9 @@ namespace SpaAppointment.Tests
                 Id = 10
             };
 
+            mockSpaContext.Setup(x => x.Customers.Add(testCustomer));
+            mockSpaContext.Setup(x => x.SaveChanges());
+
             //act
             repo.Add(testCustomer);
 
