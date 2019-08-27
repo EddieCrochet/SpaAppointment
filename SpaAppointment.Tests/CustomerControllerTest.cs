@@ -30,5 +30,23 @@ namespace SpaAppointment.Tests
             //assert
             Assert.IsType<ViewResult>(result);
         }
+
+        [Fact]
+        public void CanCustomerControllerReturnDetailsView()
+        {
+            //arrange
+            var mockServRepo = new Mock<IServiceProviderRepository>();
+            var mockCustRepo = new Mock<ICustomerRepository>();
+            var mockAppRepo = new Mock<IAppointmentRepository>();
+            var controller = new ServiceProviderController(mockServRepo.Object,
+               mockCustRepo.Object, mockAppRepo.Object);
+            var testProvider = new ServiceProvider();
+
+            //act
+            var result = controller.Details(testProvider.Id);
+
+            //assert
+            Assert.IsType<ViewResult>(result);
+        }
     }
 }
